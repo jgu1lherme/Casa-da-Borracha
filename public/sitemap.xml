@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://project--4f4b402c-4a3a-4cc4-b98f-6d3bc44d3c9f.lovable.app/</loc>
+    <!-- QUANDO TIVER DOMÍNIO PRÓPRIO, SUBSTITUA A LINHA ABAIXO POR:
+         <loc>https://seudominio.com.br/</loc> -->
+    <loc>https://jgu1lherme.github.io/Casa-da-Borracha/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

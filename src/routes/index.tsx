@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 
 import logo from "@/assets/casa-da-borracha-logo.png";
-import hero from "@/assets/hero.jpg";
+import hero from "@/assets/hero1.jpg";
 import catPecasGerais from "@/assets/cat-pecas-gerais.jpg";
 import catBorrachas from "@/assets/cat-borrachas.jpg";
 import catMangueiras from "@/assets/cat-mangueiras.jpg";
@@ -303,14 +303,14 @@ function Hero() {
               href={waLink("Olá! Quero fazer um orçamento de peças na Casa da Borracha.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm tracking-wide text-accent-foreground transition-transform hover:scale-[1.02]"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm tracking-wide text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20"
             >
               <WhatsAppIcon className="h-5 w-5" />
               Fazer orçamento no WhatsApp
             </a>
             <a
               href="#catalogo"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/70 px-5 py-3 font-display text-sm tracking-wide text-foreground transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/70 px-5 py-3 font-display text-sm tracking-wide text-foreground transition-all hover:border-accent hover:text-accent hover:shadow-md"
             >
               Ver catálogo de peças
             </a>
@@ -428,7 +428,7 @@ function Catalog() {
               )}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 font-display text-sm tracking-wide text-accent-foreground transition-transform hover:scale-[1.02]"
+              className="mt-5 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 font-display text-sm tracking-wide text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Consultar peças em geral
@@ -445,7 +445,7 @@ function Catalog() {
           {rest.map((cat) => (
             <article
               key={cat.id}
-              className="group w-[78%] shrink-0 snap-center overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-accent/60 sm:w-auto sm:shrink sm:snap-none"
+              className="group w-[78%] shrink-0 snap-center overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-accent/60 hover:shadow-lg hover:shadow-accent/10 sm:w-auto sm:shrink sm:snap-none"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -557,7 +557,7 @@ Peça que procuro: ${part || "não informado"}`;
 
           <button
             type="submit"
-            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm tracking-wide text-accent-foreground transition-transform hover:scale-[1.01]"
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm tracking-wide text-accent-foreground transition-all hover:scale-[1.01] hover:shadow-lg hover:shadow-accent/20"
           >
             <WhatsAppIcon className="h-5 w-5" />
             Enviar orçamento no WhatsApp
@@ -725,7 +725,7 @@ const LEGAL: Record<LegalKey, { title: string; paragraphs: string[] }> = {
   privacidade: {
     title: "Política de Privacidade",
     paragraphs: [
-      "A Casa da Borracha - Auto Peças e Acessórios respeita a sua privacidade. Este site é informativo e não realiza vendas online nem armazena dados em banco de dados próprio.",
+      "A Casa da Borracha - Auto Peças e Acessórios (CNPJ: 28.749.126/0001-82) respeita a sua privacidade. Este site é informativo e não realiza vendas online nem armazena dados em banco de dados próprio.",
       "Os dados que você digita no simulador de orçamento (categoria, modelo do veículo e peça procurada) são usados apenas para montar a mensagem que será enviada por você mesmo ao nosso WhatsApp. Nada é gravado no site.",
       "As informações compartilhadas no atendimento por WhatsApp ou telefone são utilizadas exclusivamente para responder ao orçamento, emitir a nota e organizar a entrega. Não vendemos nem cedemos seus dados a terceiros.",
       "Serviços de terceiros utilizados nas páginas, como o mapa incorporado do Google Maps e o WhatsApp, seguem as políticas de privacidade de seus próprios fornecedores.",
@@ -819,6 +819,7 @@ function Footer() {
               </span>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">{ADDRESS}</p>
+            <p className="mt-2 text-xs text-muted-foreground">CNPJ: 28.749.126/0001-82</p>
           </div>
 
           <div>
@@ -996,7 +997,7 @@ function Index() {
         target="_blank"
         rel="noreferrer"
         aria-label="Falar no WhatsApp"
-        className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-xl transition-transform hover:scale-105"
+        className="fixed bottom-5 right-5 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-xl transition-all hover:scale-110 hover:shadow-2xl hover:shadow-accent/30"
       >
         <WhatsAppIcon className="h-10 w-10" />
       </a>
