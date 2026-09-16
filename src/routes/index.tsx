@@ -30,19 +30,6 @@ import catSuspensao from "@/assets/cat-suspensao.jpg";
 import catPalhetas from "@/assets/cat-palhetas.jpg";
 import catAcessorios from "@/assets/cat-acessorios.jpg";
 
-const SITE_URL = "https://casa-da-borracha-preview.vercel.app";
-
-/*
- * Imagem usada no preview de links (WhatsApp, Facebook, X, LinkedIn).
- * Hoje aponta para o hero (1600x1008) só para já funcionar.
- * O ideal é criar /src/assets/og-image.jpg em 1200x630, JPEG, abaixo de 300KB,
- * trocar o import abaixo e ajustar OG_IMAGE_WIDTH/HEIGHT para 1200 / 630.
- */
-import ogImage from "@/assets/og-image.jpg";
-const OG_IMAGE_WIDTH = "1200";
-const OG_IMAGE_HEIGHT = "630";
-const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -64,35 +51,8 @@ export const Route = createFileRoute("/")({
           "Peças e borrachas automotivas na Av. Joaquim Nogueira, 1506 - São Cristóvão, Cabo Frio. Entrega rápida na Região dos Lagos.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: SITE_URL },
-      { property: "og:site_name", content: "Casa da Borracha Cabo Frio" },
-      { property: "og:locale", content: "pt_BR" },
-      { property: "og:image", content: OG_IMAGE_URL },
-      { property: "og:image:secure_url", content: OG_IMAGE_URL },
-      { property: "og:image:type", content: "image/jpeg" },
-      { property: "og:image:width", content: OG_IMAGE_WIDTH },
-      { property: "og:image:height", content: OG_IMAGE_HEIGHT },
-      {
-        property: "og:image:alt",
-        content: "Casa da Borracha - Auto Peças e Acessórios em Cabo Frio",
-      },
       { name: "twitter:card", content: "summary_large_image" },
-      {
-        name: "twitter:title",
-        content: "Casa da Borracha Cabo Frio | Auto Peças e Acessórios",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "Peças e borrachas automotivas na Av. Joaquim Nogueira, 1506 - São Cristóvão, Cabo Frio. Entrega rápida na Região dos Lagos.",
-      },
-      { name: "twitter:image", content: OG_IMAGE_URL },
-      {
-        name: "twitter:image:alt",
-        content: "Casa da Borracha - Auto Peças e Acessórios em Cabo Frio",
-      },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });
