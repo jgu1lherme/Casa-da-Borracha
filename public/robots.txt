@@ -15,4 +15,4 @@ Allow: /
 
 # QUANDO TIVER DOMÍNIO PRÓPRIO, SUBSTITUA A LINHA ABAIXO POR:
 # Sitemap: https://seudominio.com.br/sitemap.xml
-Sitemap: https://jgu1lherme.github.io/Casa-da-Borracha/sitemap.xml
+Sitemap: https://casa-da-borracha-preview.vercel.app/sitemap.xml

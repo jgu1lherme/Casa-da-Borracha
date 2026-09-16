@@ -3,7 +3,7 @@
   <url>
     <!-- QUANDO TIVER DOMÍNIO PRÓPRIO, SUBSTITUA A LINHA ABAIXO POR:
          <loc>https://seudominio.com.br/</loc> -->
-    <loc>https://jgu1lherme.github.io/Casa-da-Borracha/</loc>
+    <loc>https://casa-da-borracha-preview.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
