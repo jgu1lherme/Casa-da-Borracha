@@ -30,6 +30,19 @@ import catSuspensao from "@/assets/cat-suspensao.jpg";
 import catPalhetas from "@/assets/cat-palhetas.jpg";
 import catAcessorios from "@/assets/cat-acessorios.jpg";
 
+const SITE_URL = "https://casa-da-borracha-preview.vercel.app";
+
+/*
+ * Imagem usada no preview de links (WhatsApp, Facebook, X, LinkedIn).
+ * Hoje aponta para o hero (1600x1008) só para já funcionar.
+ * O ideal é criar /src/assets/og-image.jpg em 1200x630, JPEG, abaixo de 300KB,
+ * trocar o import abaixo e ajustar OG_IMAGE_WIDTH/HEIGHT para 1200 / 630.
+ */
+import ogImage from "@/assets/og-image.jpg";
+const OG_IMAGE_WIDTH = "1200";
+const OG_IMAGE_HEIGHT = "630";
+const OG_IMAGE_URL = `${SITE_URL}${ogImage}`;
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -51,8 +64,35 @@ export const Route = createFileRoute("/")({
           "Peças e borrachas automotivas na Av. Joaquim Nogueira, 1506 - São Cristóvão, Cabo Frio. Entrega rápida na Região dos Lagos.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Casa da Borracha Cabo Frio" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: OG_IMAGE_URL },
+      { property: "og:image:secure_url", content: OG_IMAGE_URL },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: OG_IMAGE_WIDTH },
+      { property: "og:image:height", content: OG_IMAGE_HEIGHT },
+      {
+        property: "og:image:alt",
+        content: "Casa da Borracha - Auto Peças e Acessórios em Cabo Frio",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Casa da Borracha Cabo Frio | Auto Peças e Acessórios",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Peças e borrachas automotivas na Av. Joaquim Nogueira, 1506 - São Cristóvão, Cabo Frio. Entrega rápida na Região dos Lagos.",
+      },
+      { name: "twitter:image", content: OG_IMAGE_URL },
+      {
+        name: "twitter:image:alt",
+        content: "Casa da Borracha - Auto Peças e Acessórios em Cabo Frio",
+      },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });
@@ -233,7 +273,7 @@ function Header() {
             {PHONE_DISPLAY}
           </a>
           <a
-            href={waLink("Olá! Vim pelo site da Casa da Borracha e preciso de uma peça.")}
+            href={waLink("Olá! Vim pelo site da Casa da Borracha e gostaria de saber mais sobre uma peça. Poderiam me ajudar?")}
             target="_blank"
             rel="noreferrer"
             className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-accent px-2.5 py-2 text-sm font-bold uppercase tracking-wide text-accent-foreground transition-transform hover:scale-[1.02] sm:gap-2 sm:px-4"
@@ -252,25 +292,27 @@ function Header() {
         </div>
       </div>
 
-      {open && (
-        <nav className="border-t border-border bg-card px-4 py-3 lg:hidden">
-          <div className="mb-3 md:hidden">
-            <StatusBadge />
-          </div>
-          {NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-border/60 py-3 text-sm font-bold uppercase tracking-wide text-foreground last:border-0"
-            >
-              {item.label}
-              <ChevronRight className="h-4 w-4 text-accent" />
-            </a>
-          ))}
-        </nav>
-      )}
-    </header>
+      {
+        open && (
+          <nav className="border-t border-border bg-card px-4 py-3 lg:hidden">
+            <div className="mb-3 md:hidden">
+              <StatusBadge />
+            </div>
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between border-b border-border/60 py-3 text-sm font-bold uppercase tracking-wide text-foreground last:border-0"
+              >
+                {item.label}
+                <ChevronRight className="h-4 w-4 text-accent" />
+              </a>
+            ))}
+          </nav>
+        )
+      }
+    </header >
   );
 }
 
@@ -300,7 +342,7 @@ function Hero() {
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <a
-              href={waLink("Olá! Quero fazer um orçamento de peças na Casa da Borracha.")}
+              href={waLink("Olá! Vim pelo site da Casa da Borracha e quero fazer um orçamento de peças. Poderiam me ajudar?")}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md bg-accent px-5 py-3 font-display text-sm tracking-wide text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-accent/20"
@@ -424,7 +466,7 @@ function Catalog() {
             </ul>
             <a
               href={waLink(
-                `Olá! Preciso de um orçamento na categoria "${featured.name}". Meu veículo é: `,
+                `Olá! Vim pelo site da Casa da Borracha e preciso de um orçamento na categoria "${featured?.name}". Meu veículo é: `,
               )}
               target="_blank"
               rel="noreferrer"
@@ -465,7 +507,7 @@ function Catalog() {
                 <p className="mt-2 text-sm text-muted-foreground">{cat.desc}</p>
                 <a
                   href={waLink(
-                    `Olá! Preciso de um orçamento na categoria "${cat.name}". Meu veículo é: `,
+                    `Olá! Vim pelo site da Casa da Borracha e preciso de um orçamento na categoria "${cat.name}". Meu veículo é: `,
                   )}
                   target="_blank"
                   rel="noreferrer"
@@ -867,7 +909,7 @@ function Footer() {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href={waLink("Olá! Vim pelo site da Casa da Borracha.")}
+                href={waLink("Olá! Vim pelo site da Casa da Borracha e gostaria de saber mais sobre uma peça. Poderiam me ajudar?")}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
@@ -993,7 +1035,7 @@ function Index() {
       </main>
       <Footer />
       <a
-        href={waLink("Olá! Preciso de uma peça na Casa da Borracha.")}
+        href={waLink("Olá! Vim pelo site da Casa da Borracha e preciso de uma peça. Poderiam me ajudar?")}
         target="_blank"
         rel="noreferrer"
         aria-label="Falar no WhatsApp"

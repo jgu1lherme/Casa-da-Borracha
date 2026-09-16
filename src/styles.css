@@ -143,11 +143,9 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    background-image: radial-gradient(
-      circle at 1px 1px,
-      oklch(1 0 0 / 4%) 1px,
-      transparent 0
-    );
+    background-image: radial-gradient(circle at 1px 1px,
+        oklch(1 0 0 / 4%) 1px,
+        transparent 0);
     background-size: 6px 6px;
   }
 
@@ -161,10 +159,22 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /*
+   * Rede de segurança contra scroll horizontal.
+   * Use `clip` e não `hidden`: `hidden` aqui quebraria o position: sticky
+   * do header.
+   */
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 @layer utilities {
   .brand-marquee {
+    /* Sem isto a faixa (width: max-content) estoura a largura da página. */
+    overflow: hidden;
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
 
